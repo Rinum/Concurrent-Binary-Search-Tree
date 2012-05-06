@@ -9,56 +9,13 @@ Mohammed Ahmed - m@rinum.com
 University of Illinois at Chicago
 Student - Spring 2012
 
----------
-|Warning|
----------
-Code was hastily constructed for the student research
-forum at UIC.
-
-Do not use in production code, code may contain bugs.
-Also note that this sample implementation was not created
-with good performance in mind. 
-
-The only purpose this code
-serves is to give a general idea of what an implementation
-of a parallelized version of the structure may look like.
-
 -------------
 |Information|
 -------------
-Running make creates the executable file run. This program 
-will prompt you to "insert" or "find" or "delete" data 
-(data = int by default).
+Running make creates the executable file run.
 
-In this implementation, each subtree (Tree Struct) in the 
-concurrent tree is placed under the control of exactly 1 
-continuous thread.
+This is meant for comparison purposes with the SimpleBST
+and ParallelizedBST with different data and operation sizes.
 
 Queues are used as a method of communication between 
 threads.
-
--------------------------
-|Implementation Thoughts|
--------------------------
-Applying load-balancing to the concurrent tree should 
-improve performance greatly. A simple implovement example
-would be to move the Trees in the concurrent tree around
-based on Queue sizes. Thus, trees towards the root Tree
-have smaller work loads and are able to take on more 
-work.
-
-Making each Tree a self-balancing tree (red-black tree for
-example) will improve the performance at each individual
-Tree structure.
-
--------------
-|Future Work|
--------------
-I intend to create a completed, fully functional parallel 
-implementation of the concurrent BST structure in the 
-near future. Check http://rinum.com/capstone at a later 
-date for updates.
-
-A research paper providing details, proofs, and analysis
-will also be available in the near future at the link
-above.

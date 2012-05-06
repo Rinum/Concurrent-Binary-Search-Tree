@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <boost/thread/thread.hpp>
 #include <boost/bind.hpp>
+#include <vector>
 #include "tree.h"
 
 #ifndef CTREE_H
@@ -15,10 +16,10 @@ public:
   void search(Object data);
   void insert(Object data);
   void destroy(Object data);
+  void stop();
 
   Tree<Object>* pRoot;
-
-  unsigned threads;
+  vector<boost::thread *> threads;
 };
 
 #endif

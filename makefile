@@ -1,7 +1,7 @@
 #----------------------------------------------------
 # makefile
 #----------------------------------------------------
-FLAGS= -g -Wall
+FLAGS= -g -Wall -Wextra
 run: ctree.o tree.o main.o
 	g++ $(FLAGS) -o run tree.o ctree.o main.o -lboost_thread
 tree.o: tree.cpp tree.h

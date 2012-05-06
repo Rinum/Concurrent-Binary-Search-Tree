@@ -19,19 +19,21 @@ void CTree<Object>::destroy(Object data){
 }
 
 template <class Object>
+void CTree<Object>::stop(){
+  pRoot->Q.push(new Command<Object>('t',NULL));
+}
+
+template <class Object>
 CTree<Object>::CTree(unsigned nodes){
   if(!nodes)
     return;
 
-  threads = 0;
-
   //create balanced CTree of Trees
   pRoot = new Tree<Object>;//root of CTree
-  pRoot->thread = threads++;
-  pRoot->threads = &threads;
   pRoot->maxNodes = nodes;
+  pRoot->threads = &threads;
   nodes--;
 
-  //initialize boost thread & put to sleep
-  new boost::thread( boost::bind(&Tree<Object>::run, &*pRoot) );
+  //initialize boost thread
+  threads.push_back(new boost::thread( boost::bind(&Tree<Object>::run, &*pRoot) ));
 }
